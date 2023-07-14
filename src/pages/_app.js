@@ -1,11 +1,12 @@
-import NavBar from "@/components/NavBar.js";
+import Layout from "@/components/Layout/index.js";
+import React from "react";
 
-export default function App({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
   console.log("Component : ", Component);
   console.log("pageProps : ", pageProps);
   return (
     <>
-      <NavBar></NavBar>
+      <Layout></Layout>
       <Component {...pageProps} />
     </>
   );

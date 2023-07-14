@@ -1,14 +1,16 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 export default function NavBar() {
-  const router = useRouter();
-  console.log(router);
   return (
-    <nav>
-      <Link href="/">Home</Link>
+    <>
+      <Link href={"/"}>Home</Link>
       <br />
-      <Link href="about">about</Link>
-    </nav>
+      <Link href={"/page1"}>Page1</Link>
+      <br />
+      <Link href={"/page2"}>Page2</Link>
+      <br />
+      <Link href={"/page3"}>Page3</Link>
+      <br />
+    </>
   );
 }
