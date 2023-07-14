@@ -1,11 +1,11 @@
-import { Inter } from "next/font/google";
-import NavBar from "@/components/NavBar";
+import Layout from "@/components/Layout/index.js";
 
 export default function Home() {
   return (
     <>
-      <NavBar />
-      <h1>hello world</h1>
+      <Layout>
+        <h1>hello world</h1>
+      </Layout>
     </>
   );
 }

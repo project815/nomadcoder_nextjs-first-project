@@ -1,11 +1,11 @@
-import NavBar from "@/components/NavBar";
+import NavBar from "@/components/NavBar.js";
 
-export default function MyApp({ Component, pageProps }) {
+export default function App({ Component, pageProps }) {
   console.log("Component : ", Component);
   console.log("pageProps : ", pageProps);
   return (
     <>
-      <NavBar />
+      <NavBar></NavBar>
       <Component {...pageProps} />
     </>
   );
