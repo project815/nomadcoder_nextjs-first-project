@@ -6,38 +6,30 @@ export default function NavBar() {
   const router = useRouter();
   return (
     <>
-      <active>
-        <Link
-          className={`${
-            (styles.Link, router.pathname === "/" ? styles.active : " ")
-          }`}
-          href={"/"}
-        >
-          Home
+      <nav>
+        <Link legacyBehavior={true} href={"/"}>
+          <a className={router.pathname === "/" ? "active" : ""}>Home</a>
         </Link>
         <br />
-        <Link
-          className={router.pathname === "/page1" ? styles.active : ""}
-          href={"/page1"}
-        >
-          Page1
+        <Link href={"/page1"} legacyBehavior>
+          <a className={router.pathname === "/page1" ? "active" : ""}>Page1</a>
         </Link>
         <br />
-        <Link
-          className={router.pathname === "/page2" ? styles.active : ""}
-          href={"/page2"}
-        >
-          Page2
-        </Link>
+        <Link href={"/page2"}>Page2</Link>
         <br />
-        <Link
-          className={router.pathname === "/page3" ? styles.active : ""}
-          href={"/page3"}
-        >
-          Page3
-        </Link>
+        <Link href={"/page3"}>Page3</Link>
         <br />
-      </active>
+      </nav>
+      <style jsx>{`
+        nav {
+          display: flex;
+          justify-content: space-around;
+        }
+
+        .active {
+          color: blue;
+        }
+      `}</style>
     </>
   );
 }
