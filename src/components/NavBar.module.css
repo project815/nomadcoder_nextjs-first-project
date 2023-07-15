@@ -1,0 +1,8 @@
+.link {
+  text-decoration: none;
+  text-color: red;
+}
+
+.active {
+  color: tomato;
+}
