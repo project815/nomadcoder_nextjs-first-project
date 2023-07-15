@@ -3,9 +3,9 @@ import Seo from "../Seo";
 
 export default function Layout() {
   return (
-    <>
+    <div>
       <Seo></Seo>
       <NavBar />
-    </>
+    </div>
   );
 }

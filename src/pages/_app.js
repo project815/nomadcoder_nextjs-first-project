@@ -1,25 +1,16 @@
-import Layout from "@/components/Layout/index.js";
-import React, { useEffect } from "react";
+import NavBar from "@/components/NavBar";
+import "../styles/globals.css";
 
-export default function MyApp({ Component, pageProps }) {
-  console.log("Component : ", Component);
-  console.log("pageProps : ", pageProps);
-
-  //   useEffect(() => {
-  //     (async () => {
-  //       const { results } = await (
-  //         await fetch(
-  //           `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
-  //         )
-  //       ).json();
-  //       setMovies(results);
-  //     })();
-  //   }, []);
-
+export default function App({ Component, pageProps }) {
   return (
-    <>
-      <Layout></Layout>
-      <Component {...pageProps} />
-    </>
+    <span>
+      <NavBar />
+      <Component {...pageProps} /> helloworld
+      <style jsx global>{`
+        a {
+          color: red;
+        }
+      `}</style>
+    </span>
   );
 }
