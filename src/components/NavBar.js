@@ -1,35 +1,54 @@
 import Link from "next/link";
-import styles from "./NavBar.module.css";
 import { useRouter } from "next/router";
-
 export default function NavBar() {
   const router = useRouter();
   return (
-    <>
-      <nav>
-        <Link legacyBehavior={true} href={"/"}>
+    <nav>
+      <img src="/vercel.svg" />
+      <div>
+        <Link href="/" legacyBehavior>
           <a className={router.pathname === "/" ? "active" : ""}>Home</a>
         </Link>
-        <br />
-        <Link href={"/page1"} legacyBehavior>
+        <Link href="/about" legacyBehavior>
+          <a className={router.pathname === "/about" ? "active" : ""}>About</a>
+        </Link>
+        <Link href="/page1" legacyBehavior>
           <a className={router.pathname === "/page1" ? "active" : ""}>Page1</a>
         </Link>
-        <br />
-        <Link href={"/page2"}>Page2</Link>
-        <br />
-        <Link href={"/page3"}>Page3</Link>
-        <br />
-      </nav>
+        <Link href="/page2" legacyBehavior>
+          <a className={router.pathname === "/page2" ? "active" : ""}>Page2</a>
+        </Link>
+        <Link href="/page3" legacyBehavior>
+          <a className={router.pathname === "/page3" ? "active" : ""}>Page3</a>
+        </Link>
+      </div>
       <style jsx>{`
         nav {
           display: flex;
-          justify-content: space-around;
+          gap: 10px;
+          flex-direction: column;
+          align-items: center;
+          padding-top: 20px;
+          padding-bottom: 10px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+            rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
         }
-
+        img {
+          max-width: 100px;
+          margin-bottom: 5px;
+        }
+        nav a {
+          font-weight: 600;
+          font-size: 18px;
+        }
         .active {
-          color: blue;
+          color: tomato;
+        }
+        nav div {
+          display: flex;
+          gap: 10px;
         }
       `}</style>
-    </>
+    </nav>
   );
 }
