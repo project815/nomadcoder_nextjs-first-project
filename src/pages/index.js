@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import Seo from "../components/Seo";
 import Image from "next/image";
 export default function Home({ results }) {
+  console.log(results);
   return (
     <div className="container">
       <Seo title="Home" />
       {!results && <h4>Loading...</h4>}
       {results?.map((movie) => (
-        <div key={movie.id}>
+        <div key={movie.id} className="movie">
+          <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
           <h2>{movie.original_title}</h2>
         </div>
       ))}
@@ -42,9 +44,9 @@ export default function Home({ results }) {
     </div>
   );
 }
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const { results } = await (
-    await fetch(`http://localhost:3000/api/movies`)
+    await fetch(`http://localhost:3001/api/movies`)
   ).json();
   return {
     props: {
