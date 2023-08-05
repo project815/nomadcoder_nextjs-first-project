@@ -16,6 +16,8 @@ export default function Home({ results }) {
       `/movies/${id}`
     );
   };
+
+  console.log(results);
   return (
     <div className="container">
       <Seo title="Home" />
@@ -24,21 +26,23 @@ export default function Home({ results }) {
         <div key={movie.id} className="movie">
           <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
           <h2>{movie.original_title}</h2>
+          <h4>
+            <Link
+              legacyBehavior
+              href={{
+                pathname: `/movies/${movie.id}`,
+                query: {
+                  title: movie.original_title,
+                },
+              }}
+              as={`/movies/${movie.id}`}
+            >
+              <a>{movie.original_title}</a>
+            </Link>
+          </h4>
         </div>
       ))}
-      <h4>
-        <Link
-          href={{
-            pathname: `/movies/${movie.id}`,
-            query: {
-              title: movie.original_title,
-            },
-          }}
-          as={`/movies/${movie.id}`}
-        >
-          <a>{movie.original_title}</a>
-        </Link>
-      </h4>
+
       {/* {results?.map((movie) => (
         <div className="movie" key={movie.id}>
           <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
