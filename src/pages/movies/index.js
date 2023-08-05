@@ -4,6 +4,7 @@ import Link from "next/link";
 export default function Movies() {
   return (
     <div>
+      <div>movies index</div>
       이미지
       <div>
         <Link href={"/movies/1"}>Go to : 1</Link>
