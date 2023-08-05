@@ -4,7 +4,7 @@ export default function App({ Component, pageProps }) {
   const apiKey = "218360b0337f93249ce2940fa1431746";
   return (
     <LayOut>
-      <Component {...pageProps} /> helloworld
+      <Component {...pageProps} />
       <style jsx global>{`
         a {
           color: red;

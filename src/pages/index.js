@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import Seo from "../components/Seo";
-import Image from "next/image";
 export default function Home({ results }) {
   const router = useRouter();
   const onClick = (id, title) => {
@@ -16,6 +14,9 @@ export default function Home({ results }) {
       `/movies/${id}`
     );
   };
+  //onClick 함수를 따로 빼서 useRouter를 활용하여 push하는 방식
+  //Link태그를 활용하여 작성하는 방식이 있다.
+  //Link태그에서는 as 키워드로 useRouter에서는 두번째 인자 값으로  as url를 받는다.
 
   console.log(results);
   return (
@@ -23,10 +24,16 @@ export default function Home({ results }) {
       <Seo title="Home" />
       {!results && <h4>Loading...</h4>}
       {results?.map((movie) => (
-        <div key={movie.id} className="movie">
-          <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
-          <h2>{movie.original_title}</h2>
+        <div
+          key={movie.id}
+          className="movie"
+          onClick={() => {
+            onClick(movie.id, movie.title);
+          }}
+        >
           <h4>
+            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
+
             <Link
               legacyBehavior
               href={{
